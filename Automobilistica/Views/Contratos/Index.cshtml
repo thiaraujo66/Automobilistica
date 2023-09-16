@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Automobilistica.Models.Contrato>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Data de Cadastro")
+            </th>
+            <th>
+                @Html.Label("Data de Início")
+            </th>
+            <th>
+                @Html.Label("Data da finalização")
+            </th>
+            <th>
+                @Html.Label("Total de Horas")
+            </th>
+            <th>
+                @Html.Label("Descrição do Processo")
+            </th>
+            <th>
+                @Html.Label("Código da Proposta")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ctdtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ctdtini)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ctdtfinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cttotalhoras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CtcdprocessoNavigation.Pcdescricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CtcdpropostaNavigation.Ppcdproposta)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Ctcdcontrato">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Ctcdcontrato">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Ctcdcontrato">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

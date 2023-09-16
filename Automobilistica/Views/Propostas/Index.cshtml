@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Automobilistica.Models.Proposta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Valor")
+            </th>
+            <th>
+                @Html.Label("Data de cadastro")
+            </th>
+            <th>
+                @Html.Label("Status")
+            </th>
+            <th>
+                @Html.Label("Código do Carro")
+            </th>
+            <th>
+                @Html.Label("Código do Cliente")
+            </th>
+            <th>
+                @Html.Label("Código do Funcionário")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ppvalor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ppdtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ppstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PpcdcarroNavigation.Crcdcarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PpcdclienteNavigation.Clcdcliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PpcdfuncionarioNavigation.Fncdfunc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Ppcdproposta">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Ppcdproposta">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Ppcdproposta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model Automobilistica.Models.Proposta
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Proposta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ppcdcliente" class="control-label"></label>
+                <select asp-for="Ppcdcliente" class ="form-control" asp-items="ViewBag.Ppcdcliente"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ppcdcarro" class="control-label"></label>
+                <select asp-for="Ppcdcarro" class ="form-control" asp-items="ViewBag.Ppcdcarro"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ppcdfuncionario" class="control-label"></label>
+                <select asp-for="Ppcdfuncionario" class ="form-control" asp-items="ViewBag.Ppcdfuncionario"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ppvalor" class="control-label"></label>
+                <input asp-for="Ppvalor" class="form-control" />
+                <span asp-validation-for="Ppvalor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ppdtcadastro" class="control-label"></label>
+                <input asp-for="Ppdtcadastro" class="form-control" />
+                <span asp-validation-for="Ppdtcadastro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

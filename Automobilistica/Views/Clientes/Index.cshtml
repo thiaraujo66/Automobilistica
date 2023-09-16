@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Automobilistica.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Data de Cadastro")
+            </th>
+            <th>
+                @Html.Label("Data da Alteração")
+            </th>
+            <th>
+                @Html.Label("Status")
+            </th>
+            <th>
+                @Html.Label("CPF/CNPJ")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cldtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cldtalteracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClcdpessoaNavigation.Pscgc)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Clcdcliente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Clcdcliente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Clcdcliente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

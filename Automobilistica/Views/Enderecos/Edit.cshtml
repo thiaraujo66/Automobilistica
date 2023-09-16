@@ -1,0 +1,69 @@
+﻿@model Automobilistica.Models.Enderecos
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Enderecos</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Edcdendereco" />
+            <div class="form-group">
+                <label asp-for="Edlogradouro" class="control-label">Rua</label>
+                <input asp-for="Edlogradouro" class="form-control" />
+                <span asp-validation-for="Edlogradouro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ednumero" class="control-label">Número</label>
+                <input asp-for="Ednumero" class="form-control" />
+                <span asp-validation-for="Ednumero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edbairro" class="control-label">Bairro</label>
+                <input asp-for="Edbairro" class="form-control" />
+                <span asp-validation-for="Edbairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edcidade" class="control-label">Cidade</label>
+                <input asp-for="Edcidade" class="form-control" />
+                <span asp-validation-for="Edcidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Eduf" class="control-label">UF</label>
+                <input asp-for="Eduf" class="form-control" />
+                <span asp-validation-for="Eduf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edcep" class="control-label">CEP</label>
+                <input asp-for="Edcep" class="form-control" />
+                <span asp-validation-for="Edcep" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edcomplemento" class="control-label">Complemento</label>
+                <input asp-for="Edcomplemento" class="form-control" />
+                <span asp-validation-for="Edcomplemento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Edtipoendereco" class="control-label">Tipo de endereço</label>
+                <input asp-for="Edtipoendereco" class="form-control" />
+                <span asp-validation-for="Edtipoendereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

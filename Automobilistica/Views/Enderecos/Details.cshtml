@@ -1,0 +1,66 @@
+﻿@model Automobilistica.Models.Enderecos
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Enderecos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.Label("Rua")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edlogradouro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Número")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ednumero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Bairro")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edbairro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Cidade")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("UF")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eduf)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("CEP")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcep)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Complemento")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcomplemento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Tipo de Endereço")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edtipoendereco)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Edcdendereco">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

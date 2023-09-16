@@ -1,0 +1,69 @@
+﻿@model Automobilistica.Models.Enderecos
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Enderecos</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.Label("Rua")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edlogradouro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Número")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ednumero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Bairro")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edbairro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Cidade")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcidade)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("UF")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Eduf)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("CEP")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcep)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Complemento")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edcomplemento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Tipo de endereço")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Edtipoendereco)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Edcdendereco" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Automobilistica.Models.Pessoas>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Nome")
+            </th>
+            <th>
+                @Html.Label("E-mail")
+            </th>
+            <th>
+                @Html.Label("CPF/CNPJ")
+            </th>
+            <th>
+                @Html.Label("Data de Nascimento")
+            </th>
+            <th>
+                @Html.Label("Data de Cadastro")
+            </th>
+            <th>
+                @Html.Label("Código do Endereço")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psnome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psemail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pscgc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psdtnascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Psdtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PscdenderecoNavigation.Edcdendereco)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Pscdpessoa">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Pscdpessoa">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Pscdpessoa">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

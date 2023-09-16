@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Automobilistica.Models.PropostaServico>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Valor")
+            </th>
+            <th>
+                @Html.Label("Código Proposta")
+            </th>
+            <th>
+                @Html.Label("Descrição Serviço")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prvalor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrcdpropostaNavigation.Ppcdproposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrcdservicoNavigation.Srdescricao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }) |
+                @Html.ActionLink("Details", "Details", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }) |
+                @Html.ActionLink("Delete", "Delete", new { idProp=item.Prcdproposta, idServ=item.Prcdservico })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

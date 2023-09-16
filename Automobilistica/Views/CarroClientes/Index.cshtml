@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Automobilistica.Models.CarroCliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Data de Cadastro")
+            </th>
+            <th>
+                @Html.Label("Status")
+            </th>
+            <th>
+                @Html.Label("Código do Carro")
+            </th>
+            <th>
+                @Html.Label("Código do Cliente")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ccdtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ccstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CccdcarroNavigation.Crcdcarro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CccdclienteNavigation.Clcdcliente)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente  }) |
+                @Html.ActionLink("Details", "Details", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente }) |
+                @Html.ActionLink("Delete", "Delete", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

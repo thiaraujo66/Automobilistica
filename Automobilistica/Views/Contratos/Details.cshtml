@@ -1,0 +1,54 @@
+﻿@model Automobilistica.Models.Contrato
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Contrato</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.Label("Data de Cadastro")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ctdtcadastro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Data de Inicio")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ctdtini)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Data Final")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ctdtfinal)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Total de Horas")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cttotalhoras)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Descrição do Processo")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CtcdprocessoNavigation.Pcdescricao)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.Label("Código da Proposta")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CtcdpropostaNavigation.Ppcdproposta)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Ctcdcontrato">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
