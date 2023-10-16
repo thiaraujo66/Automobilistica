@@ -21,8 +21,8 @@ namespace Automobilistica.Controllers
         // GET: PropostaServicos
         public async Task<IActionResult> Index()
         {
-            var uLTRACARContext = _context.PropostaServico.Include(p => p.PrcdpropostaNavigation).Include(p => p.PrcdservicoNavigation);
-            return View(await uLTRACARContext.ToListAsync());
+            var automobilisticaContext = _context.PropostaServico.Include(p => p.PrcdpropostaNavigation).Include(p => p.PrcdservicoNavigation);
+            return View(await automobilisticaContext.ToListAsync());
         }
 
         // GET: PropostaServicos/Details/5
@@ -153,7 +153,7 @@ namespace Automobilistica.Controllers
         {
             if (_context.PropostaServico == null)
             {
-                return Problem("Entity set 'ULTRACARContext.PropostaServico'  is null.");
+                return Problem("Entity set 'automobilisticaContext.PropostaServico'  is null.");
             }
             var propostaServico = await _context.PropostaServico.AsNoTracking().Where(e => e.Prcdproposta == idProp && e.Prcdservico == idServ).FirstOrDefaultAsync();
             if (propostaServico != null)

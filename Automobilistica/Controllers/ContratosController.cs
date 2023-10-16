@@ -21,8 +21,8 @@ namespace Automobilistica.Controllers
         // GET: Contratos
         public async Task<IActionResult> Index()
         {
-            var uLTRACARContext = _context.Contrato.Include(c => c.CtcdprocessoNavigation).Include(c => c.CtcdpropostaNavigation);
-            return View(await uLTRACARContext.ToListAsync());
+            var automobilisticaContext = _context.Contrato.Include(c => c.CtcdprocessoNavigation).Include(c => c.CtcdpropostaNavigation);
+            return View(await automobilisticaContext.ToListAsync());
         }
 
         // GET: Contratos/Details/5
@@ -153,7 +153,7 @@ namespace Automobilistica.Controllers
         {
             if (_context.Contrato == null)
             {
-                return Problem("Entity set 'ULTRACARContext.Contrato'  is null.");
+                return Problem("Entity set 'automobilisticaContext.Contrato'  is null.");
             }
             var contrato = await _context.Contrato.FindAsync(id);
             if (contrato != null)

@@ -10,6 +10,12 @@
 <div>
     <h4>Pessoas</h4>
     <hr />
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.Label("Nome")
@@ -51,7 +57,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Pscdpessoa" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" style="margin-right: 10px;" />
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
     </form>
 </div>

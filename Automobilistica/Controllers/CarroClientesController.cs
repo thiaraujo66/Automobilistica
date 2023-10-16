@@ -21,8 +21,8 @@ namespace Automobilistica.Controllers
         // GET: CarroClientes
         public async Task<IActionResult> Index()
         {
-            var uLTRACARContext = _context.CarroCliente.Include(c => c.CccdcarroNavigation).Include(c => c.CccdclienteNavigation);
-            return View(await uLTRACARContext.ToListAsync());
+            var automobilisticaContext = _context.CarroCliente.Include(c => c.CccdcarroNavigation).Include(c => c.CccdclienteNavigation);
+            return View(await automobilisticaContext.ToListAsync());
         }
 
         // GET: CarroClientes/Details/5
@@ -94,9 +94,9 @@ namespace Automobilistica.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Cccdcarro,Cccdcliente,Ccdtcadastro,Ccstatus")] CarroCliente carroCliente)
+        public async Task<IActionResult> Edit(int idCar, int idClie, [Bind("Cccdcarro,Cccdcliente,Ccdtcadastro,Ccstatus")] CarroCliente carroCliente)
         {
-            if (id != carroCliente.Cccdcarro)
+            if (idCar != carroCliente.Cccdcarro || idClie != carroCliente.Cccdcliente)
             {
                 return NotFound();
             }
@@ -153,7 +153,7 @@ namespace Automobilistica.Controllers
         {
             if (_context.CarroCliente == null)
             {
-                return Problem("Entity set 'ULTRACARContext.CarroCliente'  is null.");
+                return Problem("Entity set 'automobilisticaContext.CarroCliente'  is null.");
             }
             var carroCliente = await _context.CarroCliente.AsNoTracking().Where(e => e.Cccdcarro == idCar && e.Cccdcliente == idClie).FirstOrDefaultAsync();
             if (carroCliente != null)

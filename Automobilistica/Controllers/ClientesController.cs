@@ -23,10 +23,12 @@ namespace Automobilistica.Controllers
         public void GerarQRCode()
         {
             string conteudo = HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + HttpContext.Request.Path;
-             QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(conteudo, QRCodeGenerator.ECCLevel.Q);
+
             var qrCode = new QRCode(qrCodeData);
-            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            Bitmap qrCodeImage = qrCode.GetGraphic(10);
+
             MemoryStream ms = new MemoryStream();
             qrCodeImage.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
             byte[] byteImage = ms.ToArray();
@@ -36,8 +38,8 @@ namespace Automobilistica.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            var uLTRACARContext = _context.Cliente.Include(c => c.ClcdpessoaNavigation);
-            return View(await uLTRACARContext.ToListAsync());
+            var automobilisticaContext = _context.Cliente.Include(c => c.ClcdpessoaNavigation);
+            return View(await automobilisticaContext.ToListAsync());
         }
 
         // GET: Clientes/Details/5
@@ -163,7 +165,7 @@ namespace Automobilistica.Controllers
         {
             if (_context.Cliente == null)
             {
-                return Problem("Entity set 'ULTRACARContext.Cliente'  is null.");
+                return Problem("Entity set 'automobilisticaContext.Cliente'  is null.");
             }
             var cliente = await _context.Cliente.FindAsync(id);
             if (cliente != null)

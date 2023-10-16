@@ -4,10 +4,10 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Consulta</h1>
 
 <div>
-    <h4>CarroCliente</h4>
+    <h4>Carro do Cliente</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -37,6 +37,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { idCar=@Model.CccdcarroNavigation.Crcdcarro, idClie=@Model.CccdclienteNavigation.Clcdcliente }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Edit", "Edit", new { idCar=@Model.CccdcarroNavigation.Crcdcarro, idClie=@Model.CccdclienteNavigation.Clcdcliente }, new { @class = "btn btn-secondary" })
+    <a asp-action="Index" class="btn btn-danger" style="margin-left: 10px;">Back to List</a>
 </div>

@@ -21,8 +21,8 @@ namespace Automobilistica.Controllers
         // GET: Pessoas
         public async Task<IActionResult> Index()
         {
-            var uLTRACARContext = _context.Pessoas.Include(p => p.PscdenderecoNavigation);
-            return View(await uLTRACARContext.ToListAsync());
+            var automobilisticaContext = _context.Pessoas.Include(p => p.PscdenderecoNavigation);
+            return View(await automobilisticaContext.ToListAsync());
         }
 
         // GET: Pessoas/Details/5
@@ -147,15 +147,23 @@ namespace Automobilistica.Controllers
         {
             if (_context.Pessoas == null)
             {
-                return Problem("Entity set 'ULTRACARContext.Pessoas'  is null.");
+                return Problem("Entity set 'automobilisticaContext.Pessoas'  is null.");
             }
             var pessoas = await _context.Pessoas.FindAsync(id);
             if (pessoas != null)
             {
                 _context.Pessoas.Remove(pessoas);
             }
-            
-            await _context.SaveChangesAsync();
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception)
+            {
+                ViewBag.ErrorMessage = "Não foi possível excluir essa pessoa, verifique se ela possui algum cadastro ativo.";
+                return View(pessoas);
+            }
             return RedirectToAction(nameof(Index));
         }
 

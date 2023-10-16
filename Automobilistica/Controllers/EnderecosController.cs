@@ -23,7 +23,7 @@ namespace Automobilistica.Controllers
         {
               return _context.Enderecos != null ? 
                           View(await _context.Enderecos.ToListAsync()) :
-                          Problem("Entity set 'ULTRACARContext.Enderecos'  is null.");
+                          Problem("Entity set 'automobilisticaContext.Enderecos'  is null.");
         }
 
         // GET: Enderecos/Details/5
@@ -142,7 +142,7 @@ namespace Automobilistica.Controllers
         {
             if (_context.Enderecos == null)
             {
-                return Problem("Entity set 'ULTRACARContext.Enderecos'  is null.");
+                return Problem("Entity set 'automobilisticaContext.Enderecos'  is null.");
             }
             var enderecos = await _context.Enderecos.FindAsync(id);
             if (enderecos != null)

@@ -4,26 +4,26 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Consulta</h1>
 
 <div>
-    <h4>PropostaServico</h4>
+    <h4>Proposta de Serviço</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prvalor)
+            @Html.Label("Valor")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Prvalor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrcdpropostaNavigation)
+            @Html.Label("Código de Proposta")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PrcdpropostaNavigation.Ppcdproposta)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PrcdservicoNavigation)
+            @Html.Label("Código de Serviço")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PrcdservicoNavigation.Srdescricao)
@@ -31,6 +31,6 @@
     </dl>
 </div>
 <div>
-    @Html.ActionLink("Edit", "Edit", new { idProp=@Model.PrcdpropostaNavigation.Ppcdproposta, idServ=@Model.PrcdservicoNavigation.Srcdservico }) |
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Edit", "Edit", new { idProp=@Model.PrcdpropostaNavigation.Ppcdproposta, idServ=@Model.PrcdservicoNavigation.Srcdservico }, new { @class = "btn btn-primary" })
+    <a asp-action="Index" class="btn btn-danger" style="margin-left: 10px;">Back to List</a>
 </div>

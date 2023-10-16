@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Proposta Serviços</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Incluir</a>
 </p>
 <table class="table">
     <thead>
@@ -37,9 +37,9 @@
                 @Html.DisplayFor(modelItem => item.PrcdservicoNavigation.Srdescricao)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }) |
-                @Html.ActionLink("Details", "Details", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }) |
-                @Html.ActionLink("Delete", "Delete", new { idProp=item.Prcdproposta, idServ=item.Prcdservico })
+                @Html.ActionLink("Edit", "Edit", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }, new { @class = "btn btn-secondary" }) |
+                @Html.ActionLink("Details", "Details", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { idProp=item.Prcdproposta, idServ=item.Prcdservico }, new { @class = "btn btn-danger" })
             </td>
         </tr>
 }

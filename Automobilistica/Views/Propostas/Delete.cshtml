@@ -12,37 +12,37 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ppvalor)
+            @Html.Label("Valor")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Ppvalor)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ppdtcadastro)
+            @Html.Label("Data de Cadastro")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Ppdtcadastro)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ppstatus)
+            @Html.Label("Status")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Ppstatus)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PpcdcarroNavigation)
+            @Html.Label("Carro")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PpcdcarroNavigation.Crfabricante)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PpcdclienteNavigation)
+            @Html.Label("Código do Cliente")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PpcdclienteNavigation.Clcdcliente)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PpcdfuncionarioNavigation)
+            @Html.Label("Código do Funcionário")
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.PpcdfuncionarioNavigation.Fncdfunc)
@@ -51,7 +51,7 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Ppcdproposta" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Delete" class="btn btn-danger" style="margin-right: 10px;" />
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
     </form>
 </div>

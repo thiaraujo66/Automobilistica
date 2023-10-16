@@ -4,10 +4,10 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Carros de cada Cliente</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Novo Carro</a>
 </p>
 <table class="table">
     <thead>
@@ -43,9 +43,9 @@
                 @Html.DisplayFor(modelItem => item.CccdclienteNavigation.Clcdcliente)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente  }) |
-                @Html.ActionLink("Details", "Details", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente }) |
-                @Html.ActionLink("Delete", "Delete", new { idCar=item.Cccdcarro, idClie=item.Cccdcliente })
+                @Html.ActionLink("Edit", "Edit", new { idCar = item.Cccdcarro, idClie = item.Cccdcliente }, new { @class = "btn btn-secondary" }) |
+                @Html.ActionLink("Details", "Details", new { idCar = item.Cccdcarro, idClie = item.Cccdcliente }, new { @class = "btn btn-info" }) |
+                @Html.ActionLink("Delete", "Delete", new { idCar = item.Cccdcarro, idClie = item.Cccdcliente }, new { @class = "btn btn-danger" })
             </td>
         </tr>
 }

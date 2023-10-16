@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Inclusão</h1>
 
 <h4>Proposta</h4>
 <hr />
@@ -13,36 +13,33 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Ppcdcliente" class="control-label"></label>
+                <label asp-for="Ppcdcliente" class="control-label">Código do Cliente</label>
                 <select asp-for="Ppcdcliente" class ="form-control" asp-items="ViewBag.Ppcdcliente"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Ppcdcarro" class="control-label"></label>
+                <label asp-for="Ppcdcarro" class="control-label">Código do Carro</label>
                 <select asp-for="Ppcdcarro" class ="form-control" asp-items="ViewBag.Ppcdcarro"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Ppcdfuncionario" class="control-label"></label>
+                <label asp-for="Ppcdfuncionario" class="control-label">Código do Funcionário</label>
                 <select asp-for="Ppcdfuncionario" class ="form-control" asp-items="ViewBag.Ppcdfuncionario"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Ppvalor" class="control-label"></label>
+                <label asp-for="Ppvalor" class="control-label">Valor</label>
                 <input asp-for="Ppvalor" class="form-control" />
                 <span asp-validation-for="Ppvalor" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ppdtcadastro" class="control-label"></label>
+                <label asp-for="Ppdtcadastro" class="control-label">Data de Cadastro</label>
                 <input asp-for="Ppdtcadastro" class="form-control" />
                 <span asp-validation-for="Ppdtcadastro" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group" style="margin-top: 10px;">
+                <input type="submit" value="Create" class="btn btn-primary" style="margin-right: 10px;" />
+                <a asp-action="Index" class="btn btn-danger">Back to List</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
