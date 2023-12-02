@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Automobilistica.Models.Servicos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Serviços</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Incluir</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.Label("Nome")
+            </th>
+            <th>
+                @Html.Label("Descrição")
+            </th>
+            <th>
+                @Html.Label("Valor")
+            </th>
+            <th>
+                @Html.Label("Data de Cadastro")
+            </th>
+            <th>
+                @Html.Label("Status")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Srnome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Srdescricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Srvalor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Srdtcadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Srstatus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Srcdservico" class="btn btn-secondary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Srcdservico" class="btn btn-info">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Srcdservico" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -20,6 +20,7 @@ builder.Services.AddScoped<IPropostaRepository, PropostaRepository>();
 builder.Services.AddScoped<IPropostaServicoRepository, PropostaServicoRepository>();
 builder.Services.AddScoped<ICarroClienteRepository, CarroClienteRepository>();
 builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddScoped<IServicoRepository, ServicoRepository>();
 
 var app = builder.Build();
 
